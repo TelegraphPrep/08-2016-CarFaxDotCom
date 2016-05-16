@@ -40,7 +40,7 @@ Your `toolbelt` is an object that contains the `loop` and `transform` functions 
 
 These methods can be called in your `carfax.js` file like so:
 
-```
+```javascript
 // Code below is just an example of how to call the toolbelt functions
 
 toolbelt.loop([1, 2, 3, 4, 3], function(element){
@@ -115,10 +115,15 @@ database.carBuyers = ['Albrey', 'Jon', 'Kmack', 'Alex']
 Each `car` has 6 properties:
 
 `color`: blue, red, black, white, silver, and champagne.
+
 `id`: starts at 100 and goes increments up from there.
+
 `make`: make of the car depends on the model.
+
 `model`: Toyota, Ford, BMW, Nissan.
+
 `price`: ranges between 20,000 and 50,000.
+
 `year`: ranges between 1991 to 2016.
 
 
