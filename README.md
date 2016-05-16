@@ -9,15 +9,15 @@
 
 **Clone the Repository**
 
-3. Once the repository is on your Github profile, navigate to your fork of that repository on Github's website.  
-4. Click the "Copy to clipboard" button to copy the Git link for the repository.  
-5. In your terminal, navigate to the folder you want to copy the repository into.  
-6. In your terminal, type git clone [pasteTheLinkYouJustCopiedHere] then hit enter to clone the repository from Github to your local machine.  
+3. Once the repository is on your Github profile, navigate to your fork of that repository on Github's website.
+4. Click the "Copy to clipboard" button to copy the Git link for the repository.
+5. In your terminal, navigate to the folder you want to copy the repository into.
+6. In your terminal, type git clone [pasteTheLinkYouJustCopiedHere] then hit enter to clone the repository from Github to your local machine.
 
 **Open the Repository on Your Local Machine**
 
 In your terminal, navigate to the repository.
-View the location of that repository in your finder by typing open . into the terminal.  
+View the location of that repository in your finder by typing open . into the terminal.
 To open the repository in Sublime, drag the repository folder over the Sublime icon in your Dock (at the bottom of the screen). All of the files within the repository should now be viewable in the sidebar in Sublime.
 
 **More information on [Git Workflow](https://github.com/TelegraphPrep/PrepPlus-Wiki/blob/master/gitWorkflow.md)
@@ -30,40 +30,51 @@ See the following document on [Pairing Dynamics Workflow](https://github.com/Tel
 
 ## Important Information:
 
-This sprint is based on a part of a previous challenge you were faced with in week 3 - CarFax.com. You will be working with a database filled with cars and building out functionality allowing future users to search through your database with ease. 
+This sprint is based on a part of a previous challenge you were faced with in week 3 Infinite Loops - CarFax.com. You will be working with a database filled with cars and building out functionality allowing future users to search through your database with ease.
 
 A couple of things you should note:
 
 ### toolbelt:
 
-Your `toolbelt` is an object that contains a the `loop` and `transform` functions you'll be using to solve each prompt. In engineering terms we have set the `loop` and `transform` functions on our `toolbelt` as ***methods***.  
+Your `toolbelt` is an object that contains the `loop` and `transform` functions you'll be using to solve each prompt. In engineering terms we have set the `loop` and `transform` functions on our `toolbelt` as ***methods***.
 
-These methods can be called in your `carfax.js` file like so:  
+These methods can be called in your `carfax.js` file like so:
 
-		`toolbelt.loop`  
-		`toolbelt.transform`  
+```
+// Code below is just an example of how to call the toolbelt functions
 
-You will not be able to call the functions without that syntax, so be aware as you go along not to forget that. 
+toolbelt.loop([1, 2, 3, 4, 3], function(element){
 
-You will also be tasked to add things to your tool belt; what we mean by this is that we want you to create a function and store them inside of your `toolbelt` object.  
+console.log(element);
+ });
 
-You can do that like so:  
-
-```javascript
-
-	toolbelt.printValue = function(someValue){
-		console.log(someValue);  
-	};
+toolbelt.transform(sumArray, function(element){
+    return element + 1;
+});
 
 ```
 
-You do not need the usual `var` statement since we're setting our functions as `methods` on our `toolbelt` which is already ***instantiated***.   
+**You will not be able to call the functions without that syntax, so be aware as you go along not to forget that.**
 
-It also means you can invoke `toolbelt.printValue` anywhere in your code since `printValue` is being stored in an object that has already been created.  
+You will also be tasked to add things to your tool belt; what we mean by this is that we want you to create a function and store them inside of your `toolbelt` object.
+
+You can do that like so:
 
 ```javascript
 
-// invoking printValue above its declaration:  
+    toolbelt.printValue = function(someValue){
+        console.log(someValue);
+    };
+
+```
+
+You **DO NOT** need the usual `var` statement since we're setting our functions as `methods` on our `toolbelt` which is already ***instantiated***.
+
+It also means you can invoke `toolbelt.printValue` anywhere in your code since `printValue` is being stored in an object that has already been created.
+
+```javascript
+
+// invoking printValue above its declaration:
 
 toolbelt.printValue('this is being called');
 // this is being called
@@ -71,7 +82,7 @@ toolbelt.printValue('this is being called');
 
 
 toolbelt.printValue = function(someValue){
-	console.log(someValue);
+    console.log(someValue);
 };
 
 
@@ -79,7 +90,7 @@ toolbelt.printValue = function(someValue){
 
 ### database
 
-The `database.js` file is creating and storing all of our car data. We have already made the important parts available to you in `carfax.js` -- they are named `carData` and `database` respectively. 
+The `database.js` file is creating and storing all of our car data. We have already made the important parts available to you in `carfax.js` -- they are named `carData` and `database` respectively.
 
 `database` is an object that holds the state of all of your data.
 `carData` is an array that contains each car in your database.
@@ -89,25 +100,26 @@ Periodically you will be saving information in your `database` object by setting
 ```javascript
 
 // saving a collection of car buyers to our database:
+
 database.carBuyers = ['Albrey', 'Jon', 'Kmack', 'Alex']
 
 
 ```
 
 
-Do not tinker with any of the code inside of `database.js` as you may break your only access to the car database. 
+**Do not tinker with any of the code inside of `database.js` as you may break your only access to the car database.**
 
 
 ### Car Object Property Key:
 
 Each `car` has 6 properties:
 
-`color`: blue, red, black, white, silver, and champagne.  
-`id`: starts at 100 and goes increments up from there.  
-`make`: make of the car depends on the model.   
-`model`: Toyota, Ford, BMW, Nissan.  
-`price`: ranges between 20,000 and 50,000.  
-`year`: ranges between 1991 to 2016.  
+`color`: blue, red, black, white, silver, and champagne.
+`id`: starts at 100 and goes increments up from there.
+`make`: make of the car depends on the model.
+`model`: Toyota, Ford, BMW, Nissan.
+`price`: ranges between 20,000 and 50,000.
+`year`: ranges between 1991 to 2016.
 
 
 
@@ -118,45 +130,45 @@ Each `car` has 6 properties:
 ## Getting Started
 
 ### Test `toolbelt.loop` & `toolbelt.transform`
-	
-	Let's make sure our tools are working correctly. 
 
-	* [ ] Have your `toolbelt.loop` log each value in a test array to the console.
+Let's make sure our tools are working correctly.
 
-	* [ ] Have your `toolbelt.transform` multiply each number in a testArray by 5.
-	
+* [ ] Have your `toolbelt.loop` log each value in a test array to the console.
+
+* [ ] Have your `toolbelt.transform` multiply each number in a testArray by 5.
+
 
 ## Back-End Data Parsers:
 
 ### priceParser
 
-The first thing our engineering manager would like us to do is some internal data collection. 
+The first thing our engineering manager would like us to do is some internal data collection.
 
 Our customers always ask about the price of our cars so we'd like to have access to a collection containing the prices in our inventory separate from the `carData` collection that already exists.
 
 
-Let's first build out our function, `priceParser`, that will traverse the `carData` and return a new `list` containing the price of each car. 
+Let's first build out our function, `priceParser`, that will traverse the `carData` and return a new `list` containing the price of each car.
 
 * [ ] Create a model that illustrates what our target `list` data looks like.
 * [ ] Create a model that illustrates the expected inputs and outputs of our `priceParser`.
 * [ ] Pseudocode the step-by-step directions you'll have to take to turn your inputs into the expected output.
-* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution. 
+* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution.
 * [ ] Build `priceParser` using one or more `tools` in your `toolbelt`.
 * [ ] Use `priceParser` on our `carData` collection and save our new price collection as a value in our `database` object at the key `currentPrices`.
 
 
 ### yearParser
 
-Our manager is SO impressed with our `priceParser` that they would like us to fix a similar piece of internal functionality - `yearParser`. 
+Our manager is SO impressed with our `priceParser` that they would like us to fix a similar piece of internal functionality - `yearParser`.
 
 Our customers also frequently inquire about the age of our inventory, so let's figure out how to calculate that.
 
-Let's first build out our function, `yearParser`, that will traverse the `carData` and return a new `list` containing the year of each car. 
+Let's first build out our function, `yearParser`, that will traverse the `carData` and return a new `list` containing the year of each car.
 
 * [ ] Create a model that illustrates what our target `list` data looks like.
 * [ ] Create a model that illustrates the expected inputs and outputs of our `yearParser`.
 * [ ] Pseudocode the step-by-step directions you'll have to take to turn your inputs into the expected output.
-* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution. 
+* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution.
 * [ ] Build `yearParser` using one or more `tools` in your `toolbelt`.
 * [ ] Use `yearParser` on our `carData` collection and save our new price collection as a value in our `database` object at the key `currentYears`.
 
@@ -165,7 +177,7 @@ Let's first build out our function, `yearParser`, that will traverse the `carDat
 
 Now that we have a list of all of the years, we can use the info to get an average ***age*** of our inventory.
 
-Let's build `averageYearCalculator` which traverses through a `list` and returns the average ***age*** of our inventory. 
+Let's build `averageYearCalculator` which traverses through a `list` and returns the average ***age*** of our inventory.
 
 * [ ] Create a model that illustrates what our target `list` data
 * [ ] Create a model that illustrates the expected inputs and outputs of our `yearParser`.
@@ -178,7 +190,8 @@ Let's build `averageYearCalculator` which traverses through a `list` and returns
 
 Wow, you fixed our issues fast! Our engineering manager is very excited to have you on the team. We want to upgrade you from data collection to external functionality.
 
-### filterByColor 
+
+### filterByColor
 
 Currently, our site doesn't allow our users to filter cars easily. You've been tasked with building out our first filter: `filterByColor`.
 
@@ -217,13 +230,13 @@ Example with named function:
 
 // testing if a number is true or false
 var isEvenPredicate = function(val){
-	return val % 2 === 0;
+    return val % 2 === 0;
 };
 
 
 
 var numbers = [1, 2, 3, 4, 5];
-								// passed into filterBy
+                                // passed into filterBy
 var onlyEvens = filterBy(numbers, isEvenPredicate);
 
 console.log(onlyEvens)
@@ -238,9 +251,9 @@ Example with anonymous function passed in:
 
 
 var numbers = [1, 2, 3, 4, 5];
-								// passed into filterBy
+                                // passed into filterBy
 var onlyEvens = filterBy(numbers, function(number){
-	return number % 2 === 0;
+    return number % 2 === 0;
 });
 
 console.log(onlyEvens)
@@ -254,7 +267,7 @@ Take a look at your individual filtering functions and figure out the pattern. U
 
 * [ ] Build `filterBy` and add it to our `toolbelt` object.
 * [ ] Use `filterBy` to check whether each value in a `testList` is odd.
-* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solutions and use them to build your functions. 
+* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solutions and use them to build your functions.
 
 
 ### Year Filters (continued)
@@ -287,16 +300,16 @@ Let's build `averagePriceCalculator` which traverses through a `list` of prices 
 
 ### mostExpensiveCar
 
-`mostExpensiveCar` will traverse through a list of cars and return the car object that is most expensive. 
+`mostExpensiveCar` will traverse through a list of cars and return the car object that is most expensive.
 
-* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution and use them to build your function. 
+* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution and use them to build your function.
 * [ ] Use `mostExpensiveCar` on our `carData` list and save the object in our `database` at the key `mostExpensiveCar`.
 
 ### leastExpensiveCar
 
-`leastExpensiveCar` will traverse through a list of cars and return the car object that is least expensive. 
+`leastExpensiveCar` will traverse through a list of cars and return the car object that is least expensive.
 
-* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution and use them to build your function. 
+* [ ] Identify the `tools` in your `toolbelt` that best fit what you need to solve for the solution and use them to build your function.
 
 * [ ] Use `leastExpensiveCar` on our `carData` list and save the object in our `database` at the key `leastExpensiveCar`.
 
@@ -324,11 +337,11 @@ Adding up all of the numbers in an array:
 
 ```javascript
 
-	var numbers = [59, 72, 21, 16]
+    var numbers = [59, 72, 21, 16]
 
-	var numbersSummed = toolbelt.distill(numbers, function(sum, currentNumber){
-		return sum + currentNumber;
-	}, 0);
+    var numbersSummed = toolbelt.distill(numbers, function(sum, currentNumber){
+        return sum + currentNumber;
+    }, 0);
 
 ```
 
@@ -336,18 +349,18 @@ Adding up all of the numbers in an array:
 Finding the Largest Number in an Array:
 
 ```javascript
-	
-	var numbers = [59, 72, 21, 16];
-	var largestNumber = distill(numbers, function(largestNumber, currentNumber){
-		if (largestNumber < currentNumber){
-			return currentNumber;
-		} else {
-			return largestNumber;
-		}
-	}, 0);
 
-	console.log(largestNumber)
-	// 72
+    var numbers = [59, 72, 21, 16];
+    var largestNumber = distill(numbers, function(largestNumber, currentNumber){
+        if (largestNumber < currentNumber){
+            return currentNumber;
+        } else {
+            return largestNumber;
+        }
+    }, 0);
+
+    console.log(largestNumber)
+    // 72
 ```
 
 
@@ -355,17 +368,17 @@ Checking if All the Numbers are Even:
 
 ```javascript
 
-	var numbers = [59, 72, 21, 16]
-	var areAllOfTheseEven = distill(numbers, function(state, currentNumber){
-		if (currentNumber % 2 === 1){
-			return false;
-		} else {
-			return state;
-		}
-	}, true);
+    var numbers = [59, 72, 21, 16]
+    var areAllOfTheseEven = distill(numbers, function(state, currentNumber){
+        if (currentNumber % 2 === 1){
+            return false;
+        } else {
+            return state;
+        }
+    }, true);
 
-	console.log(areAllOfTheseEven)
-	// false
+    console.log(areAllOfTheseEven)
+    // false
 ```
 
 
@@ -373,12 +386,12 @@ Copy an array:
 
 ```javascript
 
-	var numbers = [59, 72, 21, 16]
-	var copyNumbers = distill(numbers, function(newArray, currentNumber){
-		return newArray.push(currentNumber);
-	}, []);
+    var numbers = [59, 72, 21, 16]
+    var copyNumbers = distill(numbers, function(newArray, currentNumber){
+        return newArray.push(currentNumber);
+    }, []);
 
-``` 
+```
 
 
 * [ ] Build `distill` and add it to our `toolbelt`
@@ -413,7 +426,7 @@ var sampleCarList = [
     model: Camry,
     color: blue,
     price: 29847
-}, 
+},
   {
     id: 101,
     year: 2005,
@@ -438,10 +451,10 @@ console.log(carMatrix);
 
 Keep in mind: there are 4 different `makes` in our carDataBase:
 
-	Toyota  
-	BMW  
-	Nissan
-	Ford  
+    Toyota
+    BMW
+    Nissan
+    Ford
 
 They should all have have a corresponding number representing how many cars in the list are their make.
 
@@ -460,7 +473,7 @@ var sampleCarList = [
     model: Camry,
     color: blue,
     price: 29847
-}, 
+},
   {
     id: 101,
     year: 2005,
